@@ -6,28 +6,34 @@ import TextLogo from '~/components/icons/TextLogo.vue';
 <template>
     <div class="">
         <div class="preheader">
-            <div class="preheader__logo">
-                <div class="full-logo">
-                    <LogoIcon />
-                    <TextLogo />
+            <div class="preheader__content">
+                <div class="preheader__logo">
+                    <div class="full-logo">
+                        <LogoIcon />
+                        <TextLogo />
+                    </div>
+                    <p class="preheader__logo-text">
+                        Сервис бронирования ресурсов
+                    </p>
                 </div>
-                <p class="preheader__logo-text">
-                    Сервис бронирования ресурсов
+                <div class="preheader__auth-btns">
+                    <NuxtLink to="/" class="preheader__auth-btn">
+                        Вход
+                    </NuxtLink>
+                    <NuxtLink to="/" class="preheader__auth-btn">
+                        Регистрация
+                    </NuxtLink>
+                </div>
+                <p class="preheader__slogan">
+                    Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить
+                    макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь
+                    показать наличие самого текста или продемонстрировать типографику в деле.
                 </p>
             </div>
-            <div class="preheader__auth-btns">
-                <NuxtLink to="/" class="preheader__auth-btn">
-                    Вход
-                </NuxtLink>
-                <NuxtLink to="/" class="preheader__auth-btn">
-                    Регистрация
-                </NuxtLink>
-            </div>
-            <p class="preheader__slogan">
-                Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить
-                макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь
-                показать наличие самого текста или продемонстрировать типографику в деле.
-            </p>
+            <!-- <header class="preheader__bottom-header">
+                
+            </header> -->
+            <Header class="preheader__bottom-header"/>
         </div>
         <!-- <Header/> -->
         <main>
@@ -42,10 +48,24 @@ import TextLogo from '~/components/icons/TextLogo.vue';
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100dvh;
+    height: 110dvh;
     width: 100%;
-    padding-top: 25dvh;
 
+    position: relative;
+}
+
+.preheader__content {
+    padding-top: 25dvh;
+}
+
+.preheader__bottom-header {
+    /* Прижимаем к низу */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    
 }
 
 .preheader__logo {
@@ -93,7 +113,6 @@ import TextLogo from '~/components/icons/TextLogo.vue';
 }
 
 .preheader__auth-btn:hover {
-    
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
 
