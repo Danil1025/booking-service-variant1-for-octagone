@@ -3,34 +3,28 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import LogoIcon from '~/components/icons/LogoIcon.vue';
 import Settings from '~/components/icons/Settings.vue';
 
-// Состояние открытости меню
 const isProfileMenuOpen = ref(false);
 
-// Функция переключения
 const toggleProfileMenu = () => {
     isProfileMenuOpen.value = !isProfileMenuOpen.value;
 };
 
-// Функция закрытия (для клика вне области)
 const closeProfileMenu = () => {
     isProfileMenuOpen.value = false;
 };
 
-// Обработчик клика вне элемента
+
 const handleClickOutside = (event: MouseEvent) => {
     const target = event.target as HTMLElement;
-    // Если клик был не внутри хедера (или конкретно не по меню), закрываем
     if (!target.closest('.header')) {
         closeProfileMenu();
     }
 };
 
-// Подключаем слушатель при монтировании
 onMounted(() => {
     document.addEventListener('click', handleClickOutside);
 });
 
-// Очищаем слушатель при уничтожении компонента
 onUnmounted(() => {
     document.removeEventListener('click', handleClickOutside);
 });
@@ -46,12 +40,12 @@ onUnmounted(() => {
 
                 <ul class="preheader__bottom-header-ul">
                     <li class="preheader__bottom-header-ul-item">
-                        <NuxtLink to="/" class="preheader__bottom-header-ul-item-link">
+                        <NuxtLink to="/equipment" class="preheader__bottom-header-ul-item-link">
                             Аппаратура
                         </NuxtLink>
                     </li>
                     <li class="preheader__bottom-header-ul-item">
-                        <NuxtLink to="/" class="preheader__bottom-header-ul-item-link">
+                        <NuxtLink to="/people" class="preheader__bottom-header-ul-item-link">
                             Люди
                         </NuxtLink>
                     </li>
@@ -73,7 +67,6 @@ onUnmounted(() => {
 
                         </button>
 
-                        <!-- Выпадающее меню -->
                         <transition name="dropdown">
                             <div v-if="isProfileMenuOpen" class="header__profile-dropdown">
                                 <ul class="header__profile-dropdown-list">
@@ -154,6 +147,12 @@ onUnmounted(() => {
     transition: opacity 0.2s;
 }
 
+.router-link-exact-active {
+    text-decoration: underline;
+    text-underline-offset: 12px;
+    text-decoration-thickness: 2px
+}
+
 .preheader__bottom-header-ul-item-link:hover {
     opacity: 0.7;
 }
@@ -164,7 +163,6 @@ onUnmounted(() => {
     gap: 35px;
 }
 
-/* Выпадающее меню */
 .header__profile-dropdown {
     position: absolute;
     top: 100%;
@@ -213,31 +211,14 @@ onUnmounted(() => {
 
 }
 
-.header__profile-dropdown-item {
-    /* display: block;
-    padding: 12px 24px;
-    color: #FFFFFF;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 0.2s;
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    cursor: pointer; */
-}
-
 .header__logout-btn {
     color: #FF4D4D;
-    /* Красный цвет для выхода */
 }
 
 .header__logout-btn:hover {
     background: rgba(255, 77, 77, 0.1);
 }
 
-/* Анимация появления */
 .dropdown-enter-active,
 .dropdown-leave-active {
     transition: opacity 0.2s ease, transform 0.2s ease;
