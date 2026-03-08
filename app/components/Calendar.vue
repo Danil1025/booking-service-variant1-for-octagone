@@ -125,7 +125,8 @@ const isDateSelected = (day: typeof calendarDays.value[0]) => {
 <style scoped>
 .calendar {
     background: #F2F2F2;
-    padding: 35px;
+    padding: 27px;
+    padding-bottom: 22px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     border-radius: 9px;
@@ -177,7 +178,6 @@ const isDateSelected = (day: typeof calendarDays.value[0]) => {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
-    margin-bottom: 4px;
 }
 
 .calendar-weekday {
@@ -193,12 +193,16 @@ const isDateSelected = (day: typeof calendarDays.value[0]) => {
 }
 
 .calendar-days {
+    
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
 }
 
 .calendar-day {
+    text-align: center;
+    width: 40px;
+    height: 40px;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
