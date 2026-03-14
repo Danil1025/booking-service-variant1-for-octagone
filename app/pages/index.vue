@@ -258,6 +258,7 @@ option {
     font-weight: 500;
     font-size: 14px;
     line-height: 19px;
+    color: black;
 }
 
 .disabled {
